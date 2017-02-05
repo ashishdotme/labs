@@ -28,7 +28,7 @@ $(document).ready(function() {
 
     $.LoadingOverlaySetup({
         color: "rgba(0, 0, 0, 0.8)",
-        image: "../img/loader.svg"
+        image: "/img/loader.svg"
     });
 
     $(document).ajaxSend(function(event, jqxhr, settings) {
