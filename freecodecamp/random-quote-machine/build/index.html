@@ -10,7 +10,7 @@ ashishsushilpatel@gmail.com
     <meta http-equiv="x-ua-compatible" content="ie-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="a simple project setup for rookie web desingers">
-    <title>Welcome to Project Setup</title>
+    <title>Random Quote Machine</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -50,27 +50,24 @@ ashishsushilpatel@gmail.com
         <div class="nav-right nav-menu"><a class="nav-item if contains endif is-tab{% page.url site_page.url %} is-active{% %}" href="https://ashish.me">Home</a><a class="nav-item if contains endif is-tab{% page.url site_page.url %} is-active{% %}" href="https://blog.ashish.me">Blog</a><a class="nav-item if contains endif is-tab{% page.url site_page.url %} is-active{% %}" href="https://ashish.me/projects">Projects</a><a class="nav-item if contains endif is-tab{% page.url site_page.url %} is-active{% %}" href="https://ashish.me/experiments">Labs</a><a class="nav-item if contains endif is-tab{% page.url site_page.url %} is-active{% %}" href="https://ashish.me/about">About</a><a class="nav-item if contains endif is-tab{% page.url site_page.url %} is-active{% %}" href="https://ashish.me/docs/resume.pdf">Resume</a></div>
       </div>
     </nav>
-    <section class="hero is-primary is-medium is-bold has-text-centered">
-      <div class="hero-body">
-        <h1 class="title">Hi I am Ashish Patel.</h1>
-      </div>
-    </section>
-    <section class="hero">
-      <div class="hero-content">
+    <section class="hero is-primary is-medium is-bold has-text-left quotehero">
+      <div class="hero-body container">
         <div class="columns">
           <div class="column">
-            <div class="hero-body">
-              <div class="container">
-                <h2 class="subtitle">Experiment</h2>
-                <p>This is a cool experiment.</p>
-              </div>
-            </div>
+            <h1 class="title">Loading..</h1><br>
+            <p class="subtitle has-text-right"></p>
+          </div>
+        </div><br>
+        <div class="columns">
+          <div class="column has-text-centered">
+            <p class="button is-primary" id="newquote">New Quote  </p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="button is-primary" id="tweetquote">Tweet</a>
           </div>
         </div>
       </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.loadingoverlay/latest/loadingoverlay.min.js"></script>
     <footer class="footer">
       <div class="container">
         <p class="has-text-centered">ashishsushilpatel@gmail.com</p>
