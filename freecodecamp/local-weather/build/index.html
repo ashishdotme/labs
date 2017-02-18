@@ -62,16 +62,16 @@ ashishsushilpatel@gmail.com
                 <p class="subtitle is-paddingless is-marginless" id="city"></p>
                 <p class="subtitle is-paddingless is-marginless" id="main"></p>
               </div>
-              <div class="column is-two-thirds detailscolumn">
+              <div class="column detailscolumn">
                 <div class="tabs is-centered">
                   <ul>
                     <li class="is-active"></li>
-                    <li class="is-active"><a><span>Farenheit</span></a></li>
-                    <li><a><span>Celsius</span></a></li>
+                    <li class="is-active" id="celsius-active"><a><span id="celsius">Celsius</span></a></li>
+                    <li id="farenheit-active"><a><span id="farenheit">Farenheit</span></a></li>
                   </ul>
                 </div><br>
                 <div class="columns">
-                  <div class="column"><i class="wi wi-strong-wind"></i>
+                  <div class="column"><i class="wi wi-barometer"></i>
                     <p id="precipitation"></p>
                   </div>
                 </div><br>
@@ -93,6 +93,7 @@ ashishsushilpatel@gmail.com
     </section>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"> </script>
+    <script src="https://cdn.jsdelivr.net/jquery.loadingoverlay/latest/loadingoverlay.min.js"></script>
     <script src="scripts/script.js"></script>
     <footer class="footer">
       <div class="container">

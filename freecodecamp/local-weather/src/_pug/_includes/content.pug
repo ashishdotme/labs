@@ -8,20 +8,20 @@ section.hero.is-dark.has-text-centered.weatherhero.is-bold
             h1.title.is-paddingless.is-marginless.temp.is-1
             p.subtitle.is-paddingless.is-marginless#city
             p.subtitle.is-paddingless.is-marginless#main
-          .column.is-two-thirds.detailscolumn
+          .column.detailscolumn
             .tabs.is-centered
               ul
                 li.is-active
-                li.is-active
+                li.is-active#celsius-active
                   a
-                    span Farenheit
-                li
+                    span#celsius Celsius
+                li#farenheit-active
                   a
-                    span Celsius
+                    span#farenheit Farenheit
             br
             .columns
               .column
-                i.wi.wi-strong-wind
+                i.wi.wi-barometer
                 p#precipitation
             br
             .columns
