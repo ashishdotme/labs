@@ -29,11 +29,6 @@
         navigator.geolocation.getCurrentPosition(function(position) {
           lat = position.coords.latitude;
           long = position.coords.longitude;
-          var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + '%2C' + position.coords.longitude + '&language=en';
-          $.getJSON(GEOCODING).done(function(location) {
-            console.log(location)
-            $("#city").text(location.results[0].address_components[2].long_name + ", " + location.results[0].address_components[5].long_name);
-          })
           getWeatherInCelsius(long, lat);
         });
       } else {
@@ -44,27 +39,29 @@
     getLocation();
 
     function getWeatherInCelsius(long, lat) {
-      var url = "https://api.darksky.net/forecast/bd13a764c88aca6537d81ce6d844f380/" + lat + "," + long + "?exclude=minutely,hourly,daily,alerts,flags&units=si";
+      //https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(SELECT%20woeid%20FROM%20geo.places%20WHERE%20text%3D%22(40.7141667%2C-74.0063889)%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
+      var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(SELECT%20woeid%20FROM%20geo.places%20WHERE%20text%3D%22(" + lat  + "%2C" + long + ")%22)and%20u%3D'c'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
       console.log(url);
       $.getJSON(url, function(data) {
-        $('.temp').text(data.currently.temperature + "°");
-        $('#main').text(data.currently.summary);
-        $('#precipitation').text(data.currently.pressure + ' hPa');
-        $('#humidity').text(data.currently.humidity + '%');
-        $('#wind').text(data.currently.windSpeed  + " km/h");
+        $('.temp').text(data.query.results.channel.item.condition.temp+ "°");
+        $('#main').text(data.query.results.channel.item.condition.text);
+        $('#precipitation').text(data.query.results.channel.atmosphere.pressure + ' hPa');
+        $('#humidity').text(data.query.results.channel.atmosphere.humidity + '%');
+        $('#wind').text(data.query.results.channel.wind.speed  + " km/h");
+        $('#city').text(data.query.results.channel.location.region + ', ' + data.query.results.channel.location.country);
       });
     }
 
     function getWeatherInFarenheit(long, lat) {
-      var url = "https://api.darksky.net/forecast/bd13a764c88aca6537d81ce6d844f380/" + lat + "," + long + "?exclude=minutely,hourly,daily,alerts,flags&units=us";
+       var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(SELECT%20woeid%20FROM%20geo.places%20WHERE%20text%3D%22(" + lat  + "%2C" + long + ")%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
       console.log(url);
       $.getJSON(url, function(data) {
-        console.log(data.currently.temperature);
-        $('.temp').text(data.currently.temperature + " F");
-        $('#main').text(data.currently.summary);
-        $('#precipitation').text(data.currently.pressure  + ' hPa');
-        $('#humidity').text(data.currently.humidity + '%');
-        $('#wind').text(data.currently.windSpeed + " mph");
+        $('.temp').text(data.query.results.channel.item.condition.temp + " F");
+        $('#main').text(data.query.results.channel.item.condition.text);
+        $('#precipitation').text(data.query.results.channel.atmosphere.pressure  + ' hPa');
+        $('#humidity').text(data.query.results.channel.atmosphere.humidity + '%');
+        $('#wind').text(data.query.results.channel.wind.speed + " mph");
+        $('#city').text(data.query.results.channel.location.region + ', ' + data.query.results.channel.location.country);
       });
     }
 
