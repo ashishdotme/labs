@@ -9,9 +9,9 @@ var getQuote = function() {
         },
         success: function(json) {
             //process the JSON data etc
-            var obj = $.parseJSON(json);
-            quote = obj.quote;
-            author = obj.author;
+            //var obj = $.parseJSON(json);
+            quote = json.quote;
+            author = json.author;
             $('.title').text(quote);
             $('.subtitle').text('- ' + author);
             var tweet = 'https://twitter.com/intent/tweet?text=' + quote + ' - ' + author;
